@@ -1,0 +1,3 @@
+-deb paketin postinst muokkaamaan /boot/cmdline.txt muutokset
+-käännös riippuvuudet
+-pelkkä asennus riippuvuudet

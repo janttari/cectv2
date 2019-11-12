@@ -1,2 +1,21 @@
 #!/bin/bash
-#beep
+# lisää cmdline.txt tarvittavat parametrit, jos niitä ei ennestään ole
+tiedosto="/boot/cmdline.txt"
+lisattavat=( "Item1" "Item2" "Item3" )
+for i in "${lisattavat[@]}"
+do
+    onkojo=$(cat $tiedosto|grep "$i") #onko siellä jo tämä kohde
+    if [[ ${#onkojo} <1 ]];then #jos ei ole
+        sed "s/^/$i /" -i $tiedosto #lisätään kohde rivin alkuun
+    fi
+
+done
+#--------------------------------------------------------------------------------
+
+#Autostart?
+if (whiptail --title "Autostart program?" --yesno "Autostart bootup?" 10 60) then
+    systemctl enable cectv2
+else
+    systemctl disable cectv2
+fi
+
