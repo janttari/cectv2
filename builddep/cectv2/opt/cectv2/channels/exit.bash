@@ -1,4 +1,6 @@
 #!/bin/bash
 #lähetetään exit-signaali cectv:n komentotiedostoon
-echo "exit"> /dev/shm/cectv2
+konffifile="/etc/cectv.json"
+commandfile=$(cat $konffifile |grep commandfile|awk -F\" 'NF>1 { print $(NF-1) }')
+echo "exit"> $commandfile
 
