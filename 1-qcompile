@@ -7,4 +7,4 @@ qmake
 make clean
 make
 mv cectv2 ../../builddep/cectv2/opt/cectv2/bin/
-
+make clean

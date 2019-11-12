@@ -142,9 +142,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		cectv2.pro mainwindow.h \
-		tausta.h \
-		ui_mainwindow.h \
-		ui_tausta.h main.cpp \
+		tausta.h main.cpp \
 		mainwindow.cpp \
 		tausta.cpp
 QMAKE_TARGET  = cectv2
@@ -346,7 +344,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h tausta.h ui_mainwindow.h ui_tausta.h $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h tausta.h $(DISTDIR)/
 	$(COPY_FILE) --parents main.cpp mainwindow.cpp tausta.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui tausta.ui $(DISTDIR)/
 
