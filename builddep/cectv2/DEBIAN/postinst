@@ -1,21 +1,27 @@
 #!/bin/bash
-# lisää cmdline.txt tarvittavat parametrit, jos niitä ei ennestään ole
-tiedosto="/boot/cmdline.txt"
-lisattavat=( "Item1" "Item2" "Item3" )
-for i in "${lisattavat[@]}"
-do
-    onkojo=$(cat $tiedosto|grep "$i") #onko siellä jo tämä kohde
-    if [[ ${#onkojo} <1 ]];then #jos ei ole
-        sed "s/^/$i /" -i $tiedosto #lisätään kohde rivin alkuun
-    fi
+#----------------------------------------------------------------------------------
+## lisää cmdline.txt tarvittavat parametrit, jos niitä ei ennestään ole
+#tiedosto="/boot/cmdline.txt"
+#lisattavat=( "Item1" "Item2" "Item3" )
+#for i in "${lisattavat[@]}"
+#do
+#    onkojo=$(cat $tiedosto|grep "$i") #onko siellä jo tämä kohde
+#    if [[ ${#onkojo} <1 ]];then #jos ei ole
+#        sed "s/^/$i /" -i $tiedosto #lisätään kohde rivin alkuun
+#    fi
+#
+#done
 
-done
 #--------------------------------------------------------------------------------
-
-#Autostart?
+#Autostart yes no
 if (whiptail --title "Autostart program?" --yesno "Autostart bootup?" 10 60) then
     systemctl enable cectv2
 else
     systemctl disable cectv2
 fi
+
+#----------------------------------------------------------------------------------
+user=$(whiptail --nocancel --title "Run as" --inputbox "Run as user:" 8 78 "pi" 3>&1 1>&2 2>&3)
+
+#----------------------------------------------------------------------------------
 
