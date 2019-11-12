@@ -1,0 +1,10 @@
+#!/bin/bash
+cd src/cectv2
+tiedosto=${PWD##*/}.pro #qmake -project nimeää kansion mukaiseksi
+qmake -project
+echo 'QT += widgets'>>$tiedosto
+qmake
+make clean
+make
+mv cectv2 ../../builddep/cectv2/opt/cectv2/bin/
+

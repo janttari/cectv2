@@ -1,0 +1,3 @@
+#!/bin/bash
+pid=$(cat /tmp/cectv2_playerpid)
+kill -9 $(ps -o pid= --ppid $pid) && kill -9 $pid

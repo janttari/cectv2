@@ -1,0 +1,11 @@
+#!/bin/bash
+#chmod 775 builddep/cectv2/DEBIAN/postinst
+cd builddep
+dpkg-deb --build cectv2
+mv cectv2.deb ..
+echo "Now you can install package: "
+echo 'sudo dpkg -i cectv2.deb'
+echo ""
+echo "Uninstall:"
+echo 'sudo dpkg -r cectv2'
+

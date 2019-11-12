@@ -1,0 +1,2 @@
+kanavat.conf:
+kanavan nimi|ikoni|skripti

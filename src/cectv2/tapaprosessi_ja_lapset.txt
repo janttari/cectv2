@@ -1,0 +1,1 @@
+kill -9 $(ps -o pid= --ppid 11323) && kill -9 11323

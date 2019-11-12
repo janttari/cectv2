@@ -1,0 +1,10 @@
+Package: cectv2
+Version: 0.001
+Section: multimedia
+Priority: optional
+Architecture: all
+Depends:
+Maintainer: Jani Janttari <janttari@yandex.ru>
+Description: cectv2
+ Frontend to Raspberry IPTV-players
+ Using TV remote control via hdmi-CEC

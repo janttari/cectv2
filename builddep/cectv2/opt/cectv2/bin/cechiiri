@@ -1,0 +1,42 @@
+#!/bin/bash
+#Raspberry CEC hiiri
+#sudo apt install -y cec-utils
+#muista export DISPLAY:=0
+
+
+while read -r line; do
+    rivi=$(echo "$line"|grep SetCurrentButton)
+    if [[ $rivi ]]; then 
+        nappi=$(echo $rivi|awk '{print $5}')
+        case $nappi in
+        down)
+            #echo "alas"
+            xdotool key Down
+        ;;
+        up)
+            #echo "ylos"
+            xdotool key Up
+        ;;
+        left)
+            #echo "vasen"
+            xdotool key Left
+        ;;
+        right)
+            #echo "oikea"
+            xdotool key Right
+        ;;
+        select)
+            #echo "ok"
+            xdotool key Return
+        ;;
+        exit)
+            #echo "exit"
+            /hkk/cectv2/bin/tapasoitin
+        ;;
+        stop)
+            #echo "exit"
+            /hkk/cectv2/bin/tapasoitin
+        ;;
+        esac
+    fi
+done < <(cec-client)
