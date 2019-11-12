@@ -2,6 +2,10 @@
 
 IPTV player frontend for Raspberry using HDMI CEC
 
+Install or update:
+
+    wget https://github.com/janttari/cectv2/blob/master/cectv2.deb && sudo dpkg -i cectv2.deb
+
 edit files in 
 /opt/cectv2/channels.conf
 /opt/cectv2/channels/
