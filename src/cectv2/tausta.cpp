@@ -5,7 +5,8 @@
 #include <QTimer>
 #include <QTime>
 
-Tausta::Tausta(QWidget *parent) : QWidget(parent), ui(new Ui::Tausta){
+Tausta::Tausta(QWidget *parent) : QWidget(parent), ui(new Ui::Tausta)
+{
     ui->setupUi(this);
     Tausta::move(QPoint(0,0)); //siirretään ikkuna vasempaan yläkulmaan
     Tausta::setWindowFlags(Qt::WindowStaysOnBottomHint|Qt::CustomizeWindowHint | Qt::FramelessWindowHint|Qt::SplashScreen);
@@ -25,15 +26,18 @@ Tausta::Tausta(QWidget *parent) : QWidget(parent), ui(new Ui::Tausta){
     timer->start(100);
 }
 
-Tausta::~Tausta(){
+Tausta::~Tausta()
+{
     delete ui;
 }
 
-void Tausta::kello(){ //timerin event
+void Tausta::kello() //timerin event
+{
 
     //ui->label->setText("localhost "+QTime::currentTime().toString());
 }
 
-void Tausta::updateLabel(QString label){
+void Tausta::updateLabel(QString label)
+{
     ui->label->setText(label);
 }

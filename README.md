@@ -1,6 +1,6 @@
 # cectv
 
-IPTV player frontend for Raspberry using HDMI CEC
+IPTV player frontend for Raspberry using TV remote control via HDMI CEC
 
 ![](https://raw.githubusercontent.com/janttari/cectv2/master/cectv2.png)
 

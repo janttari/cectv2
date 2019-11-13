@@ -15,7 +15,8 @@ QString pidFile = "/tmp/cectv2_playerpid"; //suoritettavan soitin-skriptin pid k
 QString commandFile="/dev/shm/cectv2"; //Tähän tiedostoon kirjoittamalla voi lähettää tälle ohjelmalle komentoja
 QString projektiHakemisto = "/opt/cectv2"; //voidaan ohittaa antamalla argumenttina hakemisto ohjelmalle komentoriviltä
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
+{
     ui->setupUi(this);
     QTimer *timer = new QTimer(this);                           //Luodaan uusi timer
     connect(timer, SIGNAL(timeout()), this, SLOT(kello()));
@@ -47,7 +48,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::kello(){ //Tässä valvotaan komentotiedostoa, päivitetään kellonaikaa labeliin ja valvotaan, jos prosessi (omxplayer tms) on loppunut
+void MainWindow::kello() //Tässä valvotaan komentotiedostoa, päivitetään kellonaikaa labeliin ja valvotaan, jos prosessi (omxplayer tms) on loppunut
+{
     if(QFileInfo(commandFile).exists()){ //katsotaan onko meille uutta komentotiedostoa
         QFile file(commandFile);
         file.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -70,7 +72,8 @@ void MainWindow::kello(){ //Tässä valvotaan komentotiedostoa, päivitetään k
     }
 }
 
-void MainWindow::on_listWidget_activated(const QModelIndex &index){ //kun ikoni valitaan enter-painikkeella
+void MainWindow::on_listWidget_activated(const QModelIndex &index) //kun ikoni valitaan enter-painikkeella
+{
     tausta.updateLabel("Loading: "+index.data().toString());
     QMainWindow::showMinimized();
     qDebug()<<"suoritetaan: "<< skripti.at(index.row());
@@ -82,7 +85,8 @@ void MainWindow::on_listWidget_activated(const QModelIndex &index){ //kun ikoni 
     file.close();
 }
 
-void MainWindow::haeKonffi(){ //Tässä piirretään kuvakkeet ruudulle ja luetaan konffin parametrit.
+void MainWindow::haeKonffi() //Tässä piirretään kuvakkeet ruudulle ja luetaan konffin parametrit.
+{
     if(qApp->arguments().count() > 1){ //saatu komentoriviparametrina projektin hakemisto
         projektiHakemisto=qApp->arguments().at(1);
     }
